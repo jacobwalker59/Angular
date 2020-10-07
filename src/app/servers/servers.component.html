@@ -1,0 +1,43 @@
+
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<button [disabled]="!allowNewServer" class="btn btn-primary" (click)="onCreateServer()">Add Server</button>
+<!-- <p [innerText]="allowNewServer"></p>
+
+<p [innerText]="serverName"></p> -->
+<!-- <app-server></app-server>
+<app-server></app-server> -->
+<!-- <p [innerText]="serverCreationStatus"></p> -->
+
+
+<input type="text" class="form-control" [(ngModel)]="userName"> 
+<button class="btn btn-primary" (click)="onUserName()">Add UserName</button>
+<p *ngIf="serverStatus; else noServer"  [innerText]="serverCreationStatus"></p>
+
+<ng-template #noServer>
+    <p>No Server Was Created</p>
+
+</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>
+
+<button class="btn btn-primary" (click)="displayParagraph()">Display Details</button>
+<p>I like cats</p>
+
+<ng-container *ngIf="buttonSwitch">
+    <div style="margin: 0 auto;text-align: left;">
+        <div>
+            <label>Name:</label>
+            <div><input id="tbname" name="yourname" /></div>
+        </div>
+        <div>
+            <label>Email Address:</label>
+            <div><input name="email" id="email" /></div></div>
+        <div>
+            <label>Additional Information (optional):</label>
+            <div><textarea rows="5" cols="46"></textarea></div>
+        </div>
+    </div>
+</ng-container>
+
+<div *ngFor="let item of buttonLog; let i = index" [ngStyle]="{backgroundColor:item > 5 ? 'blue': 'transparent'}">{{item}}{{i}}</div>
